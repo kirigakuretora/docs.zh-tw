@@ -5,7 +5,7 @@
 * [非同步Main方法 ( Async Main method )](#非同步Main方法)
   - 程式進入點可使用`async`修飾詞。
 * [預設常值運算式 ( Default literal expressions )](#預設常值運算式)
-  - 在目標型別可推斷時，你可以在預設值運算式中使用預設常值運算式。
+  - 在目標型別可推斷時，您可以在預設值運算式中使用預設常值運算式。
 * [Tuple型別推導 ( Inferred tuple element names )](#Tuple型別推導)
   - 多數情形下，Tuple元素的名稱可從Tuple初始化中推導出來。
 
@@ -65,8 +65,8 @@ LangVersion 提供了以下有效數值設定選項：
 
 ## 非同步Main方法
 
-現在 *async main* 方法可以讓你在你的`Main`方法中使用`await`。
-在過去你必須這樣寫:
+現在 *async main* 方法可以讓您在您的`Main`方法中使用`await`。
+在過去您必須這樣寫:
 
 ```csharp
 static int Main()
@@ -75,7 +75,7 @@ static int Main()
 }
 ```
 
-現在你可以這樣寫:
+現在您可以這樣寫:
 
 ```csharp
 static async Task<int> Main()
@@ -86,7 +86,8 @@ static async Task<int> Main()
 }
 ```
 
-如果你的程式並不需要返回 **exit code** ，你可以定義`Main`方法返回<xref:System.Threading.Tasks.Task>:
+如果您的程式並不需要傳回執行完成狀態 (**An exit code**) ，你可以定義 Main 方法使其傳回
+<xref:System.Threading.Tasks.Task>:
 
 ```csharp
 static async Task Main()
@@ -95,25 +96,25 @@ static async Task Main()
 }
 ```
 
-你可以在程式設計指南中的
+您可以在程式設計指南中的
 [async main](../programming-guide/main-and-command-args/index.md) 章節閱讀細節。
 
 ## 預設常值運算式
 
 預設常值運算式是預設值運算式的加強。
-這個表達示對一個變數初始化一個預設值。 在過去你必須這樣寫:
+這個表達示對一個變數初始化一個預設值。 在過去您必須這樣寫:
 
 ```csharp
 Func<string, bool> whereClause = default(Func<string, bool>);
 ```
 
-現在你可以省略右邊的初始化類型:
+現在您可以省略右邊的初始化類型:
 
 ```csharp
 Func<string, bool> whereClause = default;
 ```
 
-你可以在程式設計指南中的
+您可以在程式設計指南中的
 [default value expressions](../programming-guide/statements-expressions-operators/default-value-expressions.md) 章節閱讀細節。
 
 本次加強也變更了 [default keyword](../language-reference/keywords/default.md) 的解析規則。
@@ -136,11 +137,11 @@ int count = 5;
 string label = "Colors used in the map";
 var pair = (count, label); // element names are "count" and "label"
 ```
-你可以在 [Tuples](../tuples.md) 章節中學習更多關於此功能的細節。
+您可以在 [Tuples](../tuples.md) 章節中學習更多關於此功能的細節。
 
 ## 組件版本資源
 
-有兩個新的編譯器參數供產生 *reference-only assemblies*:
+有兩個新的編譯器參數供產生 *僅參考組件(reference-only assemblies)*:
 [/refout](../language-reference/compiler-options/refout-compiler-option.md)
 與 [/refonly](../language-reference/compiler-options/refonly-compiler-option.md).
 連結的章節更詳細的解釋這些選項以及細節。
