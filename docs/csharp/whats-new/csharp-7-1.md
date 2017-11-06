@@ -4,8 +4,8 @@
 
 * [非同步Main方法 ( Async Main method )](#非同步Main方法)
   - 程式進入點可使用`async`修飾詞。
-* [Default運算值表達式 ( Default literal expressions )](#Default運算值表達式)
-  - You can use default literal expressions in default value expressions when the target type can be inferred.
+* [預設常值運算式 ( Default literal expressions )](#預設常值運算式)
+  - 在目標型別可推斷時，你可以在預設值運算式中使用預設常值運算式。
 * [Tuple型別推導 ( Inferred tuple element names )](#Tuple型別推導)
   - 多數情形下，Tuple元素的名稱可從Tuple初始化中推導出來。
 
@@ -98,7 +98,7 @@ static async Task Main()
 你可以在編程指南中的
 [async main](../programming-guide/main-and-command-args/index.md) 章節閱讀細節。
 
-## Default運算值表達式
+## 預設常值運算式
 
 Default運算值表達式是預設值表達式的加強。
 這個表達示對一個變數初始化一個預設值。 在過去你必須這樣寫:
@@ -113,17 +113,15 @@ Func<string, bool> whereClause = default(Func<string, bool>);
 Func<string, bool> whereClause = default;
 ```
 
-You can learn more about this enhancement in the C# Programming Guide topic
-on [default value expressions](../programming-guide/statements-expressions-operators/default-value-expressions.md).
+你可以在編程指南中的
+[default value expressions](../programming-guide/statements-expressions-operators/default-value-expressions.md) 章節閱讀細節。
 
-This enhancement also changes some of the parsing rules for the [default keyword](../language-reference/keywords/default.md).
+本次加強也變更了 [default keyword](../language-reference/keywords/default.md) 的解析規則。
 
 ## Tuple型別推導
 
-This feature is a small enhancement to the tuples feature introduced in
-C# 7.0. Many times when you initialize a tuple, the variables used for the
-right side of the assignment are the same as the names you'd like for the
-tuple elements:
+這個功能是針對C# 7.0中Tuple的小增強
+在初始化Tuple時候，需要在元素左方分類一個元素名稱，但在許多情況下元素名稱常與變數名稱相同:
 
 ```csharp
 int count = 5;
@@ -131,20 +129,19 @@ string label = "Colors used in the map";
 var pair = (count: count, label: label);
 ```
 
-The names of tuple elements can be inferred from the variables used to initialize
-the tuple in C# 7.1:
+在C# 7.1中，Tuple初始化時元素的名稱可以由變數名稱推導:
 
 ```csharp
 int count = 5;
 string label = "Colors used in the map";
 var pair = (count, label); // element names are "count" and "label"
 ```
-
-You can learn more about this feature in the [Tuples](../tuples.md) topic.
+你可以在 [Tuples](../tuples.md) 章節中學習更多關於此功能的細節。
 
 ## 組件版本資源
 
-There are two new compiler options that generate *reference-only assemblies*:
+有兩個新的編譯器參數供產生 *reference-only assemblies*:
 [/refout](../language-reference/compiler-options/refout-compiler-option.md)
-and [/refonly](../language-reference/compiler-options/refonly-compiler-option.md).
-The linked topics explain these options and reference assemblies in more detail.
+與 [/refonly](../language-reference/compiler-options/refonly-compiler-option.md).
+連結的章節更詳細的解釋這些選項以及細節。
+
