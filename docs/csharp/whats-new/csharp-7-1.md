@@ -95,7 +95,7 @@ static async Task Main()
 }
 ```
 
-你可以在編程指南中的
+你可以在程式設計指南中的
 [async main](../programming-guide/main-and-command-args/index.md) 章節閱讀細節。
 
 ## 預設常值運算式
@@ -113,7 +113,7 @@ Func<string, bool> whereClause = default(Func<string, bool>);
 Func<string, bool> whereClause = default;
 ```
 
-你可以在編程指南中的
+你可以在程式設計指南中的
 [default value expressions](../programming-guide/statements-expressions-operators/default-value-expressions.md) 章節閱讀細節。
 
 本次加強也變更了 [default keyword](../language-reference/keywords/default.md) 的解析規則。
