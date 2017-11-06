@@ -86,7 +86,7 @@ static async Task<int> Main()
 }
 ```
 
-如果你的程式並不需要返回 ** exit code ** ，你可以定義`Main`方法返回<xref:System.Threading.Tasks.Task>:
+如果你的程式並不需要返回 **exit code** ，你可以定義`Main`方法返回<xref:System.Threading.Tasks.Task>:
 
 ```csharp
 static async Task Main()
@@ -100,15 +100,14 @@ static async Task Main()
 
 ## Default運算值表達式
 
-Default literal expressions are an enhancement to default value expressions.
-These expressions initialize a variable to the default value. Where you previously
-would write:
+Default運算值表達式是預設值表達式的加強。
+這個表達示對一個變數初始化一個預設值。 在過去你必須這樣寫:
 
 ```csharp
 Func<string, bool> whereClause = default(Func<string, bool>);
 ```
 
-You can now omit the type on the right-hand side of the initialization:
+現在你可以省略右邊的初始化類型:
 
 ```csharp
 Func<string, bool> whereClause = default;
