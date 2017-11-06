@@ -2,12 +2,12 @@
 
 在 C# 7.1 ，提供以下功能：
 
-* [非同步Main函數 ( Async Main method )](#非同步Main函數)
-  - The entry point for an application can have the `async` modifier.
+* [非同步Main方法 ( Async Main method )](#非同步Main方法)
+  - 程式進入點可使用`async`修飾詞。
 * [Default運算值表達式 ( Default literal expressions )](#Default運算值表達式)
   - You can use default literal expressions in default value expressions when the target type can be inferred.
 * [Tuple型別推導 ( Inferred tuple element names )](#Tuple型別推導)
-  - The names of tuple elements can be inferred from tuple initialization in many cases.
+  - 多數情形下，Tuple元素的名稱可從Tuple初始化中推導出來。
 
 ## 深入瞭解新版本
 C# 7.1 自 Visual Studio 2017 15.3 版本起與 .NET Core SDK 2.0 版本起開始支援，預設值 C# 7.1 功能為關閉，
@@ -63,10 +63,10 @@ LangVersion 提供了以下有效數值設定選項：
 您可以使用最新版本 SDK 與其相關工具進行細部個別設定。
 
 
-## 非同步Main函數
+## 非同步Main方法
 
-An *async main* method enables you to use `await` in your `Main` method.
-Previously you would need to write:
+現在 *async main* 方法可以讓你在你的`Main`方法中使用`await`。
+在過去你必須這樣寫:
 
 ```csharp
 static int Main()
@@ -75,7 +75,7 @@ static int Main()
 }
 ```
 
-You can now write:
+現在你可以這樣寫:
 
 ```csharp
 static async Task<int> Main()
@@ -86,8 +86,7 @@ static async Task<int> Main()
 }
 ```
 
-If your program doesn't return an exit code, you can declare a `Main` method
-that returns a <xref:System.Threading.Tasks.Task>:
+如果你的程式並不需要返回 ** exit code ** ，你可以定義`Main`方法返回<xref:System.Threading.Tasks.Task>:
 
 ```csharp
 static async Task Main()
@@ -96,9 +95,8 @@ static async Task Main()
 }
 ```
 
-You can read more about the details in the
-[async main](../programming-guide/main-and-command-args/index.md) topic
-in the programming guide.
+你可以在編程指南中的
+[async main](../programming-guide/main-and-command-args/index.md) 章節閱讀細節。
 
 ## Default運算值表達式
 
