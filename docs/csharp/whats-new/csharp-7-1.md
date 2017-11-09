@@ -18,7 +18,7 @@ C# 7.1 自 Visual Studio 2017 15.3 版本起與 .NET Core SDK 2.0 版本起開�
 (**Properties**) ，選擇「建置」頁籤 (**Build**) 後，按下「進階」按紐 (**Advanced**) ，將看見下面對話視窗：
 
 
-在此對話視窗中選擇「語言版本 (**Build**) 選項下拉選單值為「 C# 最新主要版本」 (**C# latest minor version (latest)**) 
+在此對話視窗中選擇「語言版本」 (**Build**) 選項下拉選單值為「 C# 最新主要版本」 (**C# latest minor version (latest)**) 
 或為 「 C# 7.1 」(**C# 7.1**)，按下確定按紐後， Visual Studio 將會為您選取的專案 csproj 設定檔中寫入以下啟用設定：
 
 
@@ -96,33 +96,31 @@ static async Task Main()
 }
 ```
 
-您可以在程式設計指南中的
-[async main](../programming-guide/main-and-command-args/index.md) 章節閱讀細節。
+你可以在程式編輯指南中的 [Main方法](../programming-guide/main-and-command-args/index.md)  (**Main() and command-line arguments**) 
+章節閱讀細節。
 
 ## 預設常值運算式
 
-預設常值運算式是預設值運算式的加強。
-這個表達示對一個變數初始化一個預設值。 在過去您必須這樣寫:
+本方法提供[預設值運算式](../programming-guide/statements-expressions-operators/default-value-expressions.md) (**Default value expressions**)的加強。此表達式將會對一個變數初始化一個預設值。在過去您必須這樣寫：
 
 ```csharp
 Func<string, bool> whereClause = default(Func<string, bool>);
 ```
 
-現在您可以省略右邊的初始化類型:
+現在您可以省略右邊的初始化類型：
 
 ```csharp
 Func<string, bool> whereClause = default;
 ```
 
-您可以在程式設計指南中的
-[default value expressions](../programming-guide/statements-expressions-operators/default-value-expressions.md) 章節閱讀細節。
+您可以在程式設計指南中的[預設值運算式](../programming-guide/statements-expressions-operators/default-value-expressions.md)章節閱讀細節。
 
-本次加強也變更了 [default keyword](../language-reference/keywords/default.md) 的解析規則。
+本次加強也變更了 [Default 關鍵字](../language-reference/keywords/default.md) (**Default keyword**) 的解析規則。
 
 ## Tuple型別推導
 
-這個功能是針對C# 7.0中Tuple的小增強
-在初始化Tuple時候，需要在元素左方分類一個元素名稱，但在許多情況下元素名稱常與變數名稱相同:
+本方法為 C# 7.0 版本 Tuple 方法的改進，在進行 Tuple 方法初始化變數時，需要在初始化變數左方定義一個分類變數名稱
+，然而許多情況下分類變數名稱常與初始化變數名稱相同：
 
 ```csharp
 int count = 5;
@@ -130,19 +128,17 @@ string label = "Colors used in the map";
 var pair = (count: count, label: label);
 ```
 
-在C# 7.1中，Tuple初始化時元素的名稱可以由變數名稱推導:
+改進後的方法在進行變數初始化時分類變數名稱可以由變數名稱推導：
 
 ```csharp
 int count = 5;
 string label = "Colors used in the map";
 var pair = (count, label); // element names are "count" and "label"
 ```
-您可以在 [Tuples](../tuples.md) 章節中學習更多關於此功能的細節。
+
+您可以在 [Tuples類型](../tuples.md) (**Tuple types**) 章節中學習更多關於此功能的細節。
 
 ## 組件版本資源
 
-有兩個新的編譯器參數供產生 *僅參考組件(reference-only assemblies)*:
-[/refout](../language-reference/compiler-options/refout-compiler-option.md)
-與 [/refonly](../language-reference/compiler-options/refonly-compiler-option.md).
-連結的章節更詳細的解釋這些選項以及細節。
-
+C# 7.1 起提供了兩個新的組件編譯時參考組件編譯參數： [/refout](../language-reference/compiler-options/refout-compiler-option.md)
+ 與 [/refonly](../language-reference/compiler-options/refonly-compiler-option.md)，您可以在連結的章節更詳細的解釋這些選項以及細節。
