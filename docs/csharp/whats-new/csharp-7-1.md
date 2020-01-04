@@ -3,11 +3,11 @@
 在 C# 7.1 ，提供以下功能：
 
 * [非同步Main方法 ( Async Main method )](#非同步Main方法)
-  - 提供程式進入點允許使用 `await` 運算子。
-* [Default運算值表達式 ( Default literal expressions )](#Default運算值表達式)
-  - 提供變數初始化時簡化初始化目標類型名稱。
+  - 程式進入點可使用`async`修飾詞。
+* [預設常值運算式 ( Default literal expressions )](#預設常值運算式)
+  - 在目標型別可推斷時，您可以在預設值運算式中使用預設常值運算式。
 * [Tuple型別推導 ( Inferred tuple element names )](#Tuple型別推導)
-  - 提供 Tuple 方法進行初始化變數時可以由變數名稱自動推導。
+  - 多數情形下，Tuple元素的名稱可從Tuple初始化中推導出來。
 
 ## 深入瞭解新版本
 C# 7.1 自 Visual Studio 2017 15.3 版本起與 .NET Core SDK 2.0 版本起開始支援，預設值 C# 7.1 功能為關閉，
@@ -65,8 +65,8 @@ LangVersion 提供了以下有效數值設定選項：
 
 ## 非同步Main方法
 
-本方法提供 `Main` 方法 (**Main method**) 中使用 `await` 運算子 (**Await operator**) 。在過去您必須這樣寫：
-
+現在 *async main* 方法可以讓您在您的`Main`方法中使用`await`。
+在過去您必須這樣寫:
 
 ```csharp
 static int Main()
@@ -75,7 +75,7 @@ static int Main()
 }
 ```
 
-現在您可以這樣寫：
+現在您可以這樣寫:
 
 ```csharp
 static async Task<int> Main()
@@ -86,9 +86,8 @@ static async Task<int> Main()
 }
 ```
 
-如果您的程式並不需要擲出執行完成狀態 (**An exit code**) ，您可以定義 Main 方法使其擲出
-<xref:System.Threading.Tasks.Task>：
-
+如果您的程式並不需要傳回執行完成狀態 (**An exit code**) ，你可以定義 Main 方法使其傳回
+<xref:System.Threading.Tasks.Task>:
 
 ```csharp
 static async Task Main()
@@ -97,14 +96,12 @@ static async Task Main()
 }
 ```
 
-
 你可以在程式編輯指南中的 [Main方法](../programming-guide/main-and-command-args/index.md)  (**Main() and command-line arguments**) 
 章節閱讀細節。
 
-## Default運算值表達式
+## 預設常值運算式
 
 本方法提供[預設值運算式](../programming-guide/statements-expressions-operators/default-value-expressions.md) (**Default value expressions**)的加強。此表達式將會對一個變數初始化一個預設值。在過去您必須這樣寫：
-
 
 ```csharp
 Func<string, bool> whereClause = default(Func<string, bool>);
@@ -125,7 +122,6 @@ Func<string, bool> whereClause = default;
 本方法為 C# 7.0 版本 Tuple 方法的改進，在進行 Tuple 方法初始化變數時，需要在初始化變數左方定義一個分類變數名稱
 ，然而許多情況下分類變數名稱常與初始化變數名稱相同：
 
-
 ```csharp
 int count = 5;
 string label = "Colors used in the map";
@@ -133,7 +129,6 @@ var pair = (count: count, label: label);
 ```
 
 改進後的方法在進行變數初始化時分類變數名稱可以由變數名稱推導：
-
 
 ```csharp
 int count = 5;
